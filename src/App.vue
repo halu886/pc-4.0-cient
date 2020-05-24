@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <el-button @click="startHacking">Start</el-button>
-    </div>
+    <el-container>
+      <el-header>
+        <define-header></define-header>
+      </el-header>
+      <router-view>
+      </router-view>
+    </el-container>
   </div>
 </template>
 
 <script>
+import defineHeader from './components/header/index.vue'
 export default {
+  name:'main',
+  components:{
+    'define-header':defineHeader
+  },
   methods: {
-    startHacking () {
-      this.$notify({
-        title: 'It works!',
-        type: 'success',
-        message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
-        duration: 5000
-      })
-    }
   }
 }
 </script>
@@ -26,5 +26,8 @@ export default {
 #app {
   font-family: Helvetica, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
 }
 </style>
